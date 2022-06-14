@@ -187,8 +187,8 @@ We've done a lot already. We set up Remix, we set up Prisma, we signed up for a 
 Next up, we want to make sure that we can read our PostgreSQL database from our code. Open up `app/routes/index.tsx` and let's replace it with the following snippet:
 
 ```typescript:app/routes/index.tsx showLineNumbers
-import { useLoaderData } from "remix";
-import type { LoaderFunction } from "remix";
+import { useLoaderData } from "@remix-run/react";
+import type { LoaderFunction } from "@remix-run/node";
 import type { Beverage } from "@prisma/client";
 
 // Import the Prisma client
@@ -232,8 +232,9 @@ Forms in Remix are super simple. No need to build an API or anything.
 First we create a form, and then we create the form handler. Both are going to live in the same file, our IndexRoute.
 
 ```typescript:app/routes/index.tsx {1-2,19-32,46-58} showLineNumbers
-import { useLoaderData, Form, redirect } from "remix";
-import type { LoaderFunction, ActionFunction } from "remix";
+import { useLoaderData, Form } from "@remix-run/react";
+import { redirect } from "@remix-run/node";
+import type { LoaderFunction, ActionFunction } from "@remix-run/node";
 import type { Beverage } from "@prisma/client";
 
 // Import the Prisma client
